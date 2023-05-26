@@ -2,6 +2,11 @@
 
 Argatoria Army Builder is a light weight, fan-made army builder for the awesome miniature wargame Argatoria. Argatoria is created by [Spellcrow](https://www.spellcrow.com/).
 
+### Hosting
+
+At this time I'm keeping this project hosted on my private Firebase project. You can find it here:
+https://townwars-377ea.web.app/
+
 ## Setup
 
 Clone the repo and run:
