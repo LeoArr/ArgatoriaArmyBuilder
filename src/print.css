@@ -1,0 +1,80 @@
+.print {
+  background-color: white;
+  height: 100vh;
+  position: relative;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@keyframes pulse {
+  0% { background-color: white; }
+  100% { background-color: rgb(255, 62, 62); }
+}
+
+.close-btn {
+  position: absolute;
+  top:0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.card {
+  width: 2.5in;
+  height: 3.5in;
+  border-radius: 0.12in;
+  background-color: rgb(243, 232, 229) !important;
+  background-image: url(./assets/white_parch.png);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: color-burn;
+}
+
+.card-content {
+  padding: 0.1in;
+  overflow: hidden;
+}
+
+.card-title {
+  margin-bottom: 0.1in;
+  font-size: 0.15in;
+  font-family: vinque;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-stats {
+  margin-bottom: 0.1in;
+  text-align: center;
+  font-size: 0.12in;
+  font-weight: bold;
+}
+.card-desc {
+  margin-bottom: 0.1in;
+  font-family: vinque;
+  font-size: 0.13in;
+}
+
+.print-count {
+  font-size: 0.15in;
+  text-align: center;
+}
+
+@media print {
+  .page-break {
+    page-break-before: always;
+  }
+}
