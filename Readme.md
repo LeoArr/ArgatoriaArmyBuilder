@@ -30,3 +30,9 @@ make build
 ## Collaborate
 
 Feel free to collaborate, reach out to me with any questions.
+
+Currently it needs:
+
+- More armies. Some manual data entry into `assets/armies.js`
+- Cool graphics. Cool graphics is always cool. For example a favicon.
+- Proofreading. Are all the stats correct? Are the rules correct? etc.
