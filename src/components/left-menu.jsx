@@ -38,7 +38,9 @@ const LeftMenuHeader = ({ state, setState }) => {
           <option>Vaendral</option>
           <option>Dirandis</option>
           <option>Gaeldor</option>
-          <option>Sheol-morg</option>
+          <option>Sheol-morg - Lord of the Abyss</option>
+          <option>Sheol-morg - Lord Necromancer</option>
+          <option>Sheol-morg - Lord of Sheol-morg</option>
         </select>
       </div>
     </div>

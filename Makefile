@@ -1,6 +1,8 @@
 run:
 	npm run dev
 
+start: run
+
 build:
 	npm run build
 

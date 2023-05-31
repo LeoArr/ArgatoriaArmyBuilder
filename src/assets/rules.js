@@ -153,6 +153,18 @@ const rules = [
       }
     },
   },
+  {
+    title: "Ravagers on Sungals",
+    fn: function (state) {
+      const count = state.selectedUnits.filter(
+        (u) => u.name === "Ravagers on Sungals"
+      ).length;
+      const totalCost = calculateTotalCost(state);
+      if (count > 5 || (count > 2 && totalCost <= 1500)) {
+        return "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts. (Army List)";
+      }
+    },
+  },
 ];
 
 export default rules;

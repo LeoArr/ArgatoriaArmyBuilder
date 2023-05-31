@@ -8,8 +8,6 @@ import ArmyBuilder from "./components/army-builder";
 import ArmiesManager from "./components/armies-manager";
 import Print from "./components/print";
 
-// More armies
-
 export function App() {
   const [state, setState] = useState(
     JSON.parse(localStorage.getItem("state")) || {

@@ -87,7 +87,15 @@ const Magic = ({ data, state, setState, index, type }) => {
 const Unit = ({ unit, state, setState, index, marauder }) => {
   const updateCount = (val) => {
     var selectedUnitsBuf = [...state.selectedUnits];
-    selectedUnitsBuf[index].count += val * (unit.model ? 1 : 4);
+    if (unit.model) {
+      selectedUnitsBuf[index].count += val;
+    } else if (selectedUnitsBuf[index].count > 4) {
+      selectedUnitsBuf[index].count += val;
+    } else if (val < 0) {
+      selectedUnitsBuf[index].count = 0;
+    } else {
+      selectedUnitsBuf[index].count += 1;
+    }
     if (selectedUnitsBuf[index].count > 16) {
       selectedUnitsBuf[index].count = 16;
     }
