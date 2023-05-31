@@ -38,6 +38,7 @@ make build
 Currently I'm working on:
  - a more condensed text-only printable army list.
  - Adding more armies.
+ - Proper routing and state handling.
 
 ## Collaborate
 
