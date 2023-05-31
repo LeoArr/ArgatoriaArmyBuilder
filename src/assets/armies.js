@@ -1,383 +1,5 @@
-export const armyRules = {
-  Sorgax: [
-    {
-      name: "Heralds of the Torment",
-      description:
-        "The Sorgax General may issue one additional free order per cycle if the opponent has suffered certain losses during the battle. Check how many Blood Points (BP) your opponent has lost so far and compare it with the table below to find out what score you need to get to successfully issue the free order.",
-    },
-  ],
-  Arox: [
-    {
-      name: "Hot Blood",
-      description: "The Arox army may re-roll an Initiative Test.",
-    },
-  ],
-  Vaendral: [
-    {
-      name: "Born Warriors",
-      description:
-        "The Vaendral army may re-roll a score of 1 or 6 scored during the Activation Roll.",
-    },
-  ],
-  Dirandis: [
-    {
-      name: "Devoted to Gods",
-      description:
-        "Basic and Elite Units in the Dirandis army may re-roll failed Prayer Tests.",
-    },
-  ],
-  "Sheol-morg - Lord of the Abyss": [
-    {
-      name: "Lord of the Abyss – Darkness is coming...",
-      description:
-        "The player is allowed to activate one unit more or less than shown in the Activation Roll. At least 1 unit must always be activated.",
-    },
-  ],
-  "Sheol-morg - Lord Necromancer": [
-    {
-      name: "Lord Necromancer – Your Souls Belong to Us!",
-      description: [
-        "If the Lord Necromancer’s opponent rolls a 1 or 2 in an Initiative Test, he loses the test regardless of other rules, magic items, modifiers, or re-roll opportunities.",
-        "Also, if the enemy has lost 5 or more Blood Points, you may roll a d6 once per cycle when activating the Lord Necromancer. A score of 2 or less means you can place a unit of The Damned* (4 bases) facing any direction without an Action Die within 20 cm of the Lord Necromancer. In a new cycle, the unit receives an Action Die and can be activated normally. It does not count towards lost Blood Points when destroyed.",
-        "The Damned: LD 3 – M 10 – WS 2 – S 2 – T 2 – A 2 – W 1 (Fearless, Creature) (use the miniatures of Sozruits or Barbarians, painting them in rotten colours.)",
-      ],
-    },
-  ],
-  "Sheol-morg - Lord of Sheol-morg": [
-    {
-      name: "Lord of Sheol-morg – Ab... huul! Daaqul, salib!!!",
-      description: [
-        "The Ritual Master (Mage) always joins the army for free. He is not included in the Mages limit and cannot have magic items. Before the battle, the Mage performs a special ritual. Roll a d6 to see what bonus the units will get.",
-        "1–2 Ritual of the Beast: Each Basic and Elite Unit in the army has movement and charge increased by 2 cm.",
-        "3–4 Ritual of the Pain: Each Basic and Elite Unit in the army, if it has no protection or armour, may always roll a d6 for each Wound it is dealt. On a score of 1, the Wound is cancelled.",
-        "5–6 Ritual of the Darkness: Each Basic and Elite Unit in the army has the Fear rule. After a successful charge with this unit, the enemy must take a Panic Test for 1 base. If the unit is a horde, the enemy must take a Panic Test for 2 bases.",
-      ],
-    },
-  ],
-  Gaeldor: [
-    {
-      name: "The Wrath of the Forest",
-      description:
-        "In the Gaeldor army, units (but not single models) may change any 1 scored when moving or charging to a score of 4.",
-    },
-  ],
-};
-
-const specialRules = {
-  ironDiscipline: {
-    name: "Iron Discipline",
-    description:
-      "Orders issued to this unit can be rerolled, and each score of 1 means a free order.",
-  },
-  responsive: {
-    name: "Responsive",
-    description: "This unit can be issued an order in 40 cm from the General.",
-  },
-  spearStorm: {
-    name: "Spear Storm",
-    description: "This unit always attacks also with the second rank.",
-  },
-  sneaky: {
-    name: "Sneaky",
-    description:
-      "This unit gets an additional +2 bonus for attacking the enemy’s flank or rear.",
-  },
-  battleInspiration: {
-    name: "Battle Inspiration",
-    description:
-      "A hero attached to this unit gives +2 additional attacks to the pool.",
-  },
-  willToFight: {
-    name: "Will to Fight",
-    description:
-      "If this unit destroyed an enemy unit, it can move up to 10 cm instead of 5 cm.",
-  },
-  poisonousSpit: {
-    name: "Poisonous Spit",
-    description:
-      "After Ropuchons finish their attacks, they can additionally spit on the opponent. Roll a d6 for each Ropuchon that is in full base contact with the enemy. The opponent has to take a Panic Test for each score of 1 or 2.",
-  },
-  vigilant: {
-    name: "Vigilant",
-    description:
-      "The enemy unit does not receive bonuses for attacking this unit’s flank or rear",
-  },
-  enslaved: {
-    name: "Enslaved",
-    description:
-      " The opponent gains Blood Points for bases from this unit only after destroying the entire unit.",
-  },
-  fearless: {
-    name: "Fearless",
-    description: "This unit always passes a Cold Blood Test and a Panic Test.",
-  },
-  snakeMove: {
-    name: "Snake Move",
-    description:
-      "This unit can move or charge through enemy or friendly units if its move ends outside the unit that it was moving or charging through.",
-  },
-  creature: {
-    name: "Creature",
-    description: "This unit cannot pray.",
-  },
-  primalRampage: {
-    name: "Primal Rampage",
-    description:
-      "When charging, Desauros must take a d6 test to see if it goes berserk. A score of 2 or less means Desauros gains +3 Attacks.",
-  },
-  tombAltar: {
-    name: "Tomb Altar",
-    description:
-      "Each Wound the Desauros with Tomb Altar deals to the opponent means the Desauros gains 1 Wound. Desauros may have a maximum of 12 Wounds.",
-  },
-  hammerStrike: {
-    name: "Hammer Strike",
-    description:
-      "For each score of 1 and 2 in the Wound Test, this unit can roll an additional d6 for wounding. The obtained scores do not generate the new ones.",
-  },
-  commandGroup: {
-    name: "Command Group",
-    description: [
-      "If a Command Group is attached to a friendly unit, that unit receives 1 additional attack when attacking the enemy. If the Command Group is in 5 cm from a friendly unit, that unit may use special rules:",
-      "After declaring a charge, the unit can (even despite the difficulties or obstacles) roll 3d6 for the charge instead of the roll that he could normally make, and choose 2 highest scores.",
-      "The unit can make a special sideways or backwards move up to 5 cm + d6 instead of its standard move or charge",
-      "The unit can re-roll the failed Panic Test.",
-    ],
-  },
-  faithful: {
-    name: "Faithful",
-    description: ["When praying, this unit gets +1 to LD."],
-  },
-  agile: {
-    name: "Agile",
-    description: [
-      "This unit can always re-roll one d6 when moving or charging.",
-    ],
-  },
-  goldArmour: {
-    name: "Gold Armour",
-    description: [
-      "Each Wound dealt to this unit can be cancelled by an exceptional armour. Roll a d6. A score of 2 or less means a cancelled Wound.",
-    ],
-  },
-  immunity: {
-    name: "Immunity",
-    description:
-      "When this unit takes a Panic Test, it is failed only on a score of 6.",
-  },
-  tearing: {
-    name: "Tearing",
-    description: "When charging, this unit has WS 4.",
-  },
-  sunMonolith: {
-    name: "Sun Monolith",
-    description:
-      "Roll a d6 for each Wound Desauros lost in combat. A score of 2 or less means that the chosen unit or single model within 20 cm is dealt 2 Wounds.",
-  },
-  livingCatapult: {
-    name: "Living Catapult",
-    description:
-      "Once per cycle, Forgon can spit at a target enemy within 20 cm that is not engaged in combat. Roll a d6. A score of 3 or less means the enemy unit must take a Panic Test for its 3 bases.",
-  },
-  bloodshed: {
-    name: "Bloodshed",
-    description: "This unit may re-roll all failed scores in the Wound Test.",
-  },
-  lightShieldDefence: {
-    name: "Light Shield Defence",
-    description:
-      "For each Wound dealt to this unit, roll a d6 for the Light Shield Defence. Each score of 1 means a cancelled Wound.",
-  },
-  wildCharge: {
-    name: "Wild Charge",
-    description: "When charging, this unit gets +1 to S.",
-  },
-  fury: {
-    name: "Fury",
-    description:
-      "When charging, this unit gets +2 additional attacks to the pool.",
-  },
-  scare: {
-    name: "Scare",
-    description:
-      "The enemy unit that is in base contact with this unit, must take a Panic Test at the end of the cycle for each base lost earlier in the same cycle.",
-  },
-  cult: {
-    name: "Cult",
-    description:
-      "The enemy gains 1 Blood Point for destroying two bases instead of one in this unit.",
-  },
-  theGodOfSlaughterBlessing: {
-    name: "The God of Slaughter Blessing",
-    description: "When praying, Sozruits have LD 10.",
-  },
-  crushingBlow: {
-    name: "Crushing Blow",
-    description:
-      "When charging, each successful score in the Weapon Skill Test made by this unit is considered a Double Hit.",
-  },
-  keenSenses: {
-    name: "Keen Senses",
-    description: "This unit can turn freely before making a move or charge.",
-  },
-  brutalTrap: {
-    name: "Brutal Trap",
-    description:
-      "This unit doubles the bonus for attacking the enemy’s flank or rear.",
-  },
-  trample: {
-    name: "Trample",
-    description:
-      "For each successful score in the Weapon Skill Test, roll an additional d6 for hitting. Additional successful scores do not generate the new ones.",
-  },
-  monster: {
-    name: "Monster",
-    description:
-      "The enemy engaged in combat with this unit fails a Panic Test on a 2+ instead of a 4+.",
-  },
-  focusedAttack: {
-    name: "Focused Attack",
-    description: "When charging, this unit gets +1 to WS.",
-  },
-  preciseHit: {
-    name: "Precise Hit",
-    description:
-      "This unit may re-roll all failed scores in the Weapon Skill Test.",
-  },
-  fierceAssault: {
-    name: "Fierce Assault",
-    description:
-      "When charging, this unit gets +2 additional attacks for each full rank.",
-  },
-  magicRunes: {
-    name: "Magic Runes",
-    description:
-      "A total score of 3 or less in the Prayer Test made by this unit is considered a free prayer (the prayers’ pool does not decrease).",
-  },
-  ambush: {
-    name: "Ambush",
-    description:
-      "This unit can make a free move before the battle. Additionally, the enemy cannot use the charge bonuses and independent bonuses while charging this unit.",
-  },
-  wildSpeed: {
-    name: "Wild Speed",
-    description:
-      "This unit always rolls an additional d6 when moving and charging, regardless of the situation.",
-  },
-  general: {
-    name: "General",
-    description:
-      "As long as the General is on the battlefield, the army may use the army special rule. ",
-  },
-  heavyArmor: {
-    name: "Heavy Armour",
-    description:
-      "Each Wound dealt to this unit can be cancelled by a massive armour. Roll a d6. A score of 2 or less means a cancelled Wound.",
-  },
-  tooLateForHope: {
-    name: "Too Late for Hope",
-    description:
-      "Horned Warriors in the Lord’s of the Abyss army gain Unstoppable (after a failed charge, this unit cannot be rotated by the opponent).",
-  },
-  fear: {
-    name: "Fear",
-    description:
-      "After a successful charge with this unit, the enemy must take a Panic Test for 1 base. If the unit is a horde, the enemy must take a Panic Test for 2 bases.",
-  },
-  fettered: {
-    name: "Fettered",
-    description:
-      "The opponent gains Blood Points for this unit’s bases only after destroying the entire unit.",
-  },
-  corpseHorde: {
-    name: "Corpse Horde",
-    description:
-      "After each lost combat, this unit must roll a d6. The score is the number of additional Wounds it receives. Truhlaks in the Lord Necromancer’s army can add a rank of Marauders to the horde that allowed them to be deployed (such a horde is 20 bases). Only Lord Necromancer can be attached to the Truhlaks unit.",
-  },
-};
-
-const spells = [
-  {
-    name: "Fireball",
-    pointCost: 7,
-    description:
-      "Choose target enemy unit (not a single model) within 20 cm that is not engaged in combat. Roll a d6 – a score of 3 or less means a successful spell. Two bases from that unit must take a Panic Test.",
-  },
-  {
-    name: "Blizzard",
-    pointCost: 6,
-    description:
-      "Choose target enemy unit within 30 cm that is not engaged in combat. Roll a d6 – a score of 4 or less means a successful spell. The enemy unit can be moved 5 cm forwards or backwards.",
-  },
-  {
-    name: "Terror",
-    pointCost: 2,
-    description:
-      "Choose target enemy unit within 30 cm. Roll a d6 – a score of 4 or less means a successful spell. The enemy unit must take a Cold Blood Test at the beginning of the next cycle. If the test it failed, that unit loses an Action Die.",
-  },
-  {
-    name: "Will to Fight",
-    pointCost: 8,
-    description:
-      "Choose target friendly unit within 20 cm that is not engaged in combat. Roll a d6 – a score of 3 or less means a successful spell. The unit can make any turn and move by 15 cm.",
-  },
-  {
-    name: "Whispers of the Gods",
-    pointCost: 8,
-    description:
-      "Choose target General within 30 cm. Roll a d6 – a score of 4 or less means a successful spell. The selected General will receive a +2 or -2 modifier, depending on the player’s decision, in the next Initiative Phase.",
-  },
-];
-
-const magicItems = [
-  {
-    name: "Talisman of Ragloq",
-    pointCost: 2,
-    description:
-      "During the Activation Roll, it allows to re-roll one of the dice.",
-  },
-  {
-    name: "Elixir",
-    pointCost: 1,
-    description:
-      "The player can re-roll the Initiative Test with a +2 modifier.",
-  },
-  {
-    name: "Old Parchment",
-    pointCost: 2,
-    description:
-      "The Mage may cast another spell in the cycle, but it cannot be the same as the first spell.",
-  },
-  {
-    name: "Book of the Dead",
-    pointCost: 8,
-    description:
-      "Every enemy unit within 20 cm of the Mage must take a d6 test. A score of 2 or less means the enemy unit is dealt 2 Wounds.",
-  },
-  {
-    name: "Dispel",
-    pointCost: 1,
-    description:
-      "If an enemy Mage used a spell or an item other than Dispel, a d6 test can be made. A score of 5 or less means that spell or item was dispelled. A score of 1 means that the Dispel has not lost its power and can be used again.",
-  },
-  {
-    name: "Ring of Power",
-    pointCost: 2,
-    description: "The Mage can teleport up to 40 cm during its activation.",
-  },
-  {
-    name: "Staff",
-    pointCost: 3,
-    description:
-      "Target unit within 20 cm of the Mage must re-roll all failed or successful hits in combat.",
-  },
-  {
-    name: "Diadem of Despair",
-    pointCost: 4,
-    description:
-      "The Diadem can be used to support target unit within 20 cm of the Mage. Each score of 1 in the Wound Test made by the chosen unit deals 2 Wounds.",
-  },
-];
+import { magicItems, spells } from "./auxiliaryArmyStuff";
+import specialRules from "./specialRules";
 
 const armies = {
   Sorgax: {
@@ -1280,6 +902,19 @@ const armies = {
         ],
       },
       {
+        name: "Dark Fauns",
+        type: "elite",
+        pointCost: 23,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 4,
+        T: 4,
+        A: 3,
+        W: 3,
+        specialRules: [specialRules.fierce, specialRules.immunity],
+      },
+      {
         name: "Truhlaks (Skeletons)",
         type: "elite",
         pointCost: 9,
@@ -1314,6 +949,184 @@ const armies = {
           specialRules.baaaaaa,
           specialRules.fanaticalLoyalty,
         ],
+      },
+      {
+        name: "Truhlaks on Fallen Ogars",
+        type: "rare",
+        pointCost: 19,
+        LD: 6,
+        M: 15,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.wildSpeed,
+          specialRules.fear,
+          specialRules.fearless,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Minotaur",
+        type: "rare",
+        pointCost: 52,
+        model: true,
+        LD: 6,
+        M: 10,
+        WS: 2,
+        S: 6,
+        T: 6,
+        A: 5,
+        W: 7,
+        specialRules: [specialRules.fearless, specialRules.amok],
+      },
+      {
+        name: "Black Knights on Horgars",
+        type: "unique",
+        pointCost: 27,
+        LD: 6,
+        M: 15,
+        WS: 4,
+        S: 5,
+        T: 5,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.heavyArmor,
+          specialRules.fierceAssault,
+          specialRules.fear,
+          specialRules.faithful,
+          specialRules.immunity,
+          {
+            name: "Limit",
+            description:
+              "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.",
+          },
+        ],
+      },
+      {
+        name: "Hybrids",
+        type: "unique",
+        pointCost: 17,
+        LD: 5,
+        M: 10,
+        WS: 3,
+        S: 5,
+        T: 5,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.spasms,
+          specialRules.fearless,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Hydra",
+        type: "unique",
+        pointCost: 83,
+        model: true,
+        LD: 2,
+        M: 10,
+        WS: 3,
+        S: 7,
+        T: 7,
+        A: 7,
+        W: 8,
+        specialRules: [
+          specialRules.fearless,
+          specialRules.bornInTheAbyss,
+          specialRules.darkVomit,
+        ],
+      },
+      {
+        name: "Command Group",
+        type: "hero",
+        pointCost: 15,
+        commandGroup: true,
+        model: true,
+        specialRules: [specialRules.commandGroup],
+      },
+      {
+        name: "Champion of Gehenna",
+        type: "hero",
+        pointCost: 14,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Gehenna",
+            description:
+              "(d6 test – 3 or less) If the Champion of Gehenna is attached to a friendly unit engaged in combat, make a d6 test before the fight. A score of 3 or less means the chosen unit’s stat (except W) can be increased by 1 until the end of the cycle.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Hordes",
+        type: "hero",
+        pointCost: 13,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Hordes",
+            description:
+              "(d6 test – 3 or less) Make a d6 test if the unit with the Champion of Hordes attached made a successful charge or has been charged. A score of 3 or less means the unit which has at least 12 bases may re-roll all failed scores in the Weapon Skill Test. If the unit wasn’t a horde or it lost its rule, it gains (regains) the horde’s rules.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Dark Gods",
+        type: "hero",
+        pointCost: 16,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Dark Gods",
+            description:
+              "(d6 test – 3 or less) If the Champion of Dark Gods is attached to a friendly unit engaged in combat, it always adds 5 attacks instead of 4. In addition, you can make a d6 test before the enemy’s attacks. A score of 3 or less means the enemy must re-roll all successful scores both in the Weapon Skill Test and the Wound Test.",
+          },
+        ],
+      },
+      {
+        name: "Curser (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Curser",
+            description:
+              "Can use magic spells and items worth up to 6 points each. Every enemy unit in 30 cm from the Curser has -2 to the charge range.",
+          },
+        ],
+      },
+      {
+        name: "Warlock (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Warlock",
+            description:
+              "Can use any magic spells and items. Every friendly unit in 20 cm from the Warlock can re-roll the prayer for Fury.",
+          },
+        ],
+      },
+      {
+        name: "Lord of the Abyss (General)",
+        type: "hero",
+        pointCost: 30,
+        general: true,
+        model: true,
+        LD: 3,
+        specialRules: [specialRules.general],
       },
     ],
     spells: spells,
@@ -1322,28 +1135,6 @@ const armies = {
   "Sheol-morg - Lord Necromancer": {
     models: [
       {
-        name: "Horned Warriors",
-        type: "basic",
-        pointCost: 15,
-        LD: 6,
-        M: 10,
-        WS: 3,
-        S: 3,
-        T: 3,
-        A: 2,
-        W: 2,
-        specialRules: [
-          {
-            name: "Lord of the Abyss",
-            description:
-              "Only Basic Unit in the army of the Lord of the Abyss.",
-          },
-          specialRules.terribleDamage,
-          specialRules.heavyArmor,
-          specialRules.tooLateForHope,
-        ],
-      },
-      {
         name: "Truhlaks (Skeletons)",
         type: "basic",
         pointCost: 9,
@@ -1355,10 +1146,6 @@ const armies = {
         A: 2,
         W: 2,
         specialRules: [
-          {
-            name: "Lord Necromancer",
-            description: "Only Basic Unit in the army of the Lord Necromancer.",
-          },
           specialRules.fear,
           specialRules.fearless,
           specialRules.creature,
@@ -1367,8 +1154,38 @@ const armies = {
         ],
       },
       {
+        name: "Horned Warriors",
+        type: "elite",
+        pointCost: 15,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.terribleDamage,
+          specialRules.heavyArmor,
+          specialRules.tooLateForHope,
+        ],
+      },
+      {
+        name: "Dark Fauns",
+        type: "elite",
+        pointCost: 23,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 4,
+        T: 4,
+        A: 3,
+        W: 3,
+        specialRules: [specialRules.fierce, specialRules.immunity],
+      },
+      {
         name: "Ritual Guardians (Kozars)",
-        type: "basic",
+        type: "elite",
         pointCost: 13,
         LD: 6,
         M: 10,
@@ -1378,15 +1195,188 @@ const armies = {
         A: 2,
         W: 2,
         specialRules: [
-          {
-            name: "Lord of Sheol-morg",
-            description:
-              "Only Basic Unit in the army of the Lord of Sheol-morg.",
-          },
           specialRules.ancientSteel,
           specialRules.baaaaaa,
           specialRules.fanaticalLoyalty,
         ],
+      },
+      {
+        name: "Truhlaks on Fallen Ogars",
+        type: "rare",
+        pointCost: 19,
+        LD: 6,
+        M: 15,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.wildSpeed,
+          specialRules.fear,
+          specialRules.fearless,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Minotaur",
+        type: "rare",
+        pointCost: 52,
+        model: true,
+        LD: 6,
+        M: 10,
+        WS: 2,
+        S: 6,
+        T: 6,
+        A: 5,
+        W: 7,
+        specialRules: [specialRules.fearless, specialRules.amok],
+      },
+      {
+        name: "Black Knights on Horgars",
+        type: "unique",
+        pointCost: 27,
+        LD: 6,
+        M: 15,
+        WS: 4,
+        S: 5,
+        T: 5,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.heavyArmor,
+          specialRules.fierceAssault,
+          specialRules.fear,
+          specialRules.faithful,
+          specialRules.immunity,
+          {
+            name: "Limit",
+            description:
+              "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.",
+          },
+        ],
+      },
+      {
+        name: "Hybrids",
+        type: "unique",
+        pointCost: 17,
+        LD: 5,
+        M: 10,
+        WS: 3,
+        S: 5,
+        T: 5,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.spasms,
+          specialRules.fearless,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Hydra",
+        type: "unique",
+        pointCost: 83,
+        model: true,
+        LD: 2,
+        M: 10,
+        WS: 3,
+        S: 7,
+        T: 7,
+        A: 7,
+        W: 8,
+        specialRules: [
+          specialRules.fearless,
+          specialRules.bornInTheAbyss,
+          specialRules.darkVomit,
+        ],
+      },
+      {
+        name: "Command Group",
+        type: "hero",
+        pointCost: 15,
+        commandGroup: true,
+        model: true,
+        specialRules: [specialRules.commandGroup],
+      },
+      {
+        name: "Champion of Gehenna",
+        type: "hero",
+        pointCost: 14,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Gehenna",
+            description:
+              "(d6 test – 3 or less) If the Champion of Gehenna is attached to a friendly unit engaged in combat, make a d6 test before the fight. A score of 3 or less means the chosen unit’s stat (except W) can be increased by 1 until the end of the cycle.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Hordes",
+        type: "hero",
+        pointCost: 13,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Hordes",
+            description:
+              "(d6 test – 3 or less) Make a d6 test if the unit with the Champion of Hordes attached made a successful charge or has been charged. A score of 3 or less means the unit which has at least 12 bases may re-roll all failed scores in the Weapon Skill Test. If the unit wasn’t a horde or it lost its rule, it gains (regains) the horde’s rules.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Dark Gods",
+        type: "hero",
+        pointCost: 16,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Dark Gods",
+            description:
+              "(d6 test – 3 or less) If the Champion of Dark Gods is attached to a friendly unit engaged in combat, it always adds 5 attacks instead of 4. In addition, you can make a d6 test before the enemy’s attacks. A score of 3 or less means the enemy must re-roll all successful scores both in the Weapon Skill Test and the Wound Test.",
+          },
+        ],
+      },
+      {
+        name: "Curser (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Curser",
+            description:
+              "Can use magic spells and items worth up to 6 points each. Every enemy unit in 30 cm from the Curser has -2 to the charge range.",
+          },
+        ],
+      },
+      {
+        name: "Warlock (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Warlock",
+            description:
+              "Can use any magic spells and items. Every friendly unit in 20 cm from the Warlock can re-roll the prayer for Fury.",
+          },
+        ],
+      },
+      {
+        name: "Lord Necromancer (General)",
+        type: "hero",
+        pointCost: 30,
+        general: true,
+        model: true,
+        LD: 1,
+        specialRules: [specialRules.general],
       },
     ],
     spells: spells,
@@ -1395,51 +1385,6 @@ const armies = {
   "Sheol-morg - Lord of Sheol-morg": {
     models: [
       {
-        name: "Horned Warriors",
-        type: "basic",
-        pointCost: 15,
-        LD: 6,
-        M: 10,
-        WS: 3,
-        S: 3,
-        T: 3,
-        A: 2,
-        W: 2,
-        specialRules: [
-          {
-            name: "Lord of the Abyss",
-            description:
-              "Only Basic Unit in the army of the Lord of the Abyss.",
-          },
-          specialRules.terribleDamage,
-          specialRules.heavyArmor,
-          specialRules.tooLateForHope,
-        ],
-      },
-      {
-        name: "Truhlaks (Skeletons)",
-        type: "basic",
-        pointCost: 9,
-        LD: 3,
-        M: 10,
-        WS: 3,
-        S: 2,
-        T: 1,
-        A: 2,
-        W: 2,
-        specialRules: [
-          {
-            name: "Lord Necromancer",
-            description: "Only Basic Unit in the army of the Lord Necromancer.",
-          },
-          specialRules.fear,
-          specialRules.fearless,
-          specialRules.creature,
-          specialRules.fettered,
-          specialRules.corpseHorde,
-        ],
-      },
-      {
         name: "Ritual Guardians (Kozars)",
         type: "basic",
         pointCost: 13,
@@ -1451,22 +1396,495 @@ const armies = {
         A: 2,
         W: 2,
         specialRules: [
-          {
-            name: "Lord of Sheol-morg",
-            description:
-              "Only Basic Unit in the army of the Lord of Sheol-morg.",
-          },
           specialRules.ancientSteel,
           specialRules.baaaaaa,
           specialRules.fanaticalLoyalty,
         ],
+      },
+      {
+        name: "Truhlaks (Skeletons)",
+        type: "elite",
+        pointCost: 9,
+        LD: 3,
+        M: 10,
+        WS: 3,
+        S: 2,
+        T: 1,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.fear,
+          specialRules.fearless,
+          specialRules.creature,
+          specialRules.fettered,
+          specialRules.corpseHorde,
+        ],
+      },
+      {
+        name: "Horned Warriors",
+        type: "elite",
+        pointCost: 15,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.terribleDamage,
+          specialRules.heavyArmor,
+          specialRules.tooLateForHope,
+        ],
+      },
+      {
+        name: "Dark Fauns",
+        type: "elite",
+        pointCost: 23,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 4,
+        T: 4,
+        A: 3,
+        W: 3,
+        specialRules: [specialRules.fierce, specialRules.immunity],
+      },
+      {
+        name: "Truhlaks on Fallen Ogars",
+        type: "rare",
+        pointCost: 19,
+        LD: 6,
+        M: 15,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.wildSpeed,
+          specialRules.fear,
+          specialRules.fearless,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Minotaur",
+        type: "rare",
+        pointCost: 52,
+        model: true,
+        LD: 6,
+        M: 10,
+        WS: 2,
+        S: 6,
+        T: 6,
+        A: 5,
+        W: 7,
+        specialRules: [specialRules.fearless, specialRules.amok],
+      },
+      {
+        name: "Black Knights on Horgars",
+        type: "unique",
+        pointCost: 27,
+        LD: 6,
+        M: 15,
+        WS: 4,
+        S: 5,
+        T: 5,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.heavyArmor,
+          specialRules.fierceAssault,
+          specialRules.fear,
+          specialRules.faithful,
+          specialRules.immunity,
+          {
+            name: "Limit",
+            description:
+              "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.",
+          },
+        ],
+      },
+      {
+        name: "Hybrids",
+        type: "unique",
+        pointCost: 17,
+        LD: 5,
+        M: 10,
+        WS: 3,
+        S: 5,
+        T: 5,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.spasms,
+          specialRules.fearless,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Hydra",
+        type: "unique",
+        pointCost: 83,
+        model: true,
+        LD: 2,
+        M: 10,
+        WS: 3,
+        S: 7,
+        T: 7,
+        A: 7,
+        W: 8,
+        specialRules: [
+          specialRules.fearless,
+          specialRules.bornInTheAbyss,
+          specialRules.darkVomit,
+        ],
+      },
+      {
+        name: "Command Group",
+        type: "hero",
+        pointCost: 15,
+        commandGroup: true,
+        model: true,
+        specialRules: [specialRules.commandGroup],
+      },
+      {
+        name: "Champion of Gehenna",
+        type: "hero",
+        pointCost: 14,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Gehenna",
+            description:
+              "(d6 test – 3 or less) If the Champion of Gehenna is attached to a friendly unit engaged in combat, make a d6 test before the fight. A score of 3 or less means the chosen unit’s stat (except W) can be increased by 1 until the end of the cycle.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Hordes",
+        type: "hero",
+        pointCost: 13,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Hordes",
+            description:
+              "(d6 test – 3 or less) Make a d6 test if the unit with the Champion of Hordes attached made a successful charge or has been charged. A score of 3 or less means the unit which has at least 12 bases may re-roll all failed scores in the Weapon Skill Test. If the unit wasn’t a horde or it lost its rule, it gains (regains) the horde’s rules.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Dark Gods",
+        type: "hero",
+        pointCost: 16,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Dark Gods",
+            description:
+              "(d6 test – 3 or less) If the Champion of Dark Gods is attached to a friendly unit engaged in combat, it always adds 5 attacks instead of 4. In addition, you can make a d6 test before the enemy’s attacks. A score of 3 or less means the enemy must re-roll all successful scores both in the Weapon Skill Test and the Wound Test.",
+          },
+        ],
+      },
+      {
+        name: "Curser (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Curser",
+            description:
+              "Can use magic spells and items worth up to 6 points each. Every enemy unit in 30 cm from the Curser has -2 to the charge range.",
+          },
+        ],
+      },
+      {
+        name: "Warlock (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Warlock",
+            description:
+              "Can use any magic spells and items. Every friendly unit in 20 cm from the Warlock can re-roll the prayer for Fury.",
+          },
+        ],
+      },
+      {
+        name: "Lord of Sheol-morg (General)",
+        type: "hero",
+        pointCost: 30,
+        general: true,
+        model: true,
+        LD: 2,
+        specialRules: [specialRules.general],
       },
     ],
     spells: spells,
     magicItems: magicItems,
   },
   Gaeldor: {
-    models: [],
+    models: [
+      {
+        name: "Beast Hunters (Barbarians)",
+        type: "basic",
+        pointCost: 13,
+        LD: 7,
+        M: 10,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 2,
+        specialRules: [specialRules.momentum, specialRules.hunterInstinct],
+      },
+      {
+        name: "Oduns",
+        type: "elite",
+        pointCost: 18,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 4,
+        T: 5,
+        A: 2,
+        W: 2,
+        specialRules: [specialRules.spearStorm, specialRules.woodiness],
+      },
+      {
+        name: "Amazons on Spiders",
+        type: "elite",
+        pointCost: 19,
+        LD: 7,
+        M: 15,
+        WS: 3,
+        S: 3,
+        T: 4,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.venom,
+          specialRules.keenSenses,
+          {
+            name: "Limit",
+            description:
+              "Max. 3 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.",
+          },
+        ],
+      },
+      {
+        name: "Voraks",
+        type: "elite",
+        pointCost: 12,
+        LD: 6,
+        M: 10,
+        WS: 3,
+        S: 3,
+        T: 3,
+        A: 2,
+        W: 2,
+        specialRules: [specialRules.sweepingSlash, specialRules.brutalTrap],
+      },
+      {
+        name: "Iron Oaks (Half-giants)",
+        type: "rare",
+        pointCost: 22,
+        LD: 7,
+        M: 10,
+        WS: 2,
+        S: 4,
+        T: 4,
+        A: 2,
+        W: 2,
+        specialRules: [specialRules.crushingBlow],
+      },
+      {
+        name: "Forest Serpents (Slagors)",
+        type: "rare",
+        pointCost: 15,
+        LD: 6,
+        M: 15,
+        WS: 3,
+        S: 3,
+        T: 5,
+        A: 2,
+        W: 2,
+        specialRules: [
+          specialRules.fearless,
+          specialRules.snakeMove,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Trefloq",
+        type: "rare",
+        pointCost: 56,
+        model: true,
+        LD: 6,
+        M: 10,
+        WS: 2,
+        S: 6,
+        T: 8,
+        A: 5,
+        W: 7,
+        specialRules: [
+          specialRules.toxicSpores,
+          specialRules.fearless,
+          specialRules.woodiness,
+        ],
+      },
+      {
+        name: "Wild Creatures",
+        type: "unique",
+        pointCost: 18,
+        LD: 5,
+        M: 15,
+        WS: 3,
+        S: 4,
+        T: 4,
+        A: 2,
+        W: 3,
+        specialRules: [
+          specialRules.underTheSpell,
+          specialRules.frenzy,
+          specialRules.creature,
+        ],
+      },
+      {
+        name: "Marmydon",
+        type: "unique",
+        pointCost: 248,
+        model: true,
+        LD: 4,
+        M: 10,
+        WS: 3,
+        S: 12,
+        T: 9,
+        A: 6,
+        W: 24,
+        specialRules: [
+          specialRules.roar,
+          specialRules.crushingBlow,
+          specialRules.thickHide,
+          specialRules.fearless,
+          specialRules.theFallOfTheLeviathan,
+          specialRules.monster,
+        ],
+      },
+      {
+        name: "Forest Dragon",
+        type: "unique",
+        pointCost: 96,
+        model: true,
+        LD: 4,
+        M: 15,
+        WS: 4,
+        S: 7,
+        T: 6,
+        A: 8,
+        W: 8,
+        specialRules: [
+          specialRules.kingOfTheWild,
+          specialRules.fearless,
+          specialRules.wingedCreature,
+        ],
+      },
+      {
+        name: "Command Group",
+        type: "hero",
+        pointCost: 15,
+        commandGroup: true,
+        model: true,
+        specialRules: [specialRules.commandGroup],
+      },
+      {
+        name: "Champion of Forest",
+        type: "hero",
+        pointCost: 12,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Forest",
+            description:
+              "(d6 test – 3 or less) If the Champion of Forest is attached to a friendly unit engaged in combat, make a d6 test before the fight. A score of 3 or less means the unit gets a +1 to S bonus in this cycle. The Champion of Forest allows to make a re-roll when rolling for terrain.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Beasts",
+        type: "hero",
+        pointCost: 13,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Beasts",
+            description:
+              "(d6 test – 4 or less) Roll a d6 if the General failed to issue an order to a unit of: Oduns, Amazons on Spiders, Forest Serpents, or Wild Creatures. A score of 4 or less means the General may re-roll the failed score. The Champion of Beasts attached to the listed units adds 2 more attacks to the pool.",
+          },
+        ],
+      },
+      {
+        name: "Champion of Hunt",
+        type: "hero",
+        pointCost: 15,
+        champion: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Champion of Hunt",
+            description:
+              "(d6 test – 2 or less) If the Champion of Hunt is attached to a friendly unit engaged in combat, he can make a test whenever the friendly unit attacks. A score of 2 or less means every score of 6 in the Weapon Skill Test counts as a successful hit.",
+          },
+        ],
+      },
+      {
+        name: "Druid (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Druid",
+            description:
+              "Can use magic spells and items worth up to 6 points each. Each friendly unit of Oduns and a Trefloq within 20 cm of the Druid can re-roll failed scores during the roll for protection (Woodiness).",
+          },
+        ],
+      },
+      {
+        name: "Beast Master (Mage)",
+        type: "hero",
+        pointCost: 14,
+        mage: true,
+        model: true,
+        specialRules: [
+          {
+            name: "Beast Master",
+            description: "Can use any magic spells and items.",
+          },
+        ],
+      },
+      {
+        name: "Gaeldaukar (General)",
+        type: "hero",
+        pointCost: 30,
+        mage: true,
+        model: true,
+        LD: 2,
+        specialRules: [specialRules.general],
+      },
+    ],
     spells: spells,
     magicItems: magicItems,
   },

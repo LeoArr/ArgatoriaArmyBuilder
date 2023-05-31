@@ -38,7 +38,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5f9062b5;;
+  background-color: #5f906272;;
   border-style: solid;
 }
 
@@ -77,7 +77,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #5f9062b5;
+  background-color: #5f906272;
   color: white;
   position: sticky;
   bottom: 0px;
@@ -99,10 +99,12 @@ main {
   align-items: center;
   padding: 1rem 1rem 3rem;
   border-bottom: 5px;
+  border-left: 5px;
+  border-right: 5px;
   border-style: solid;
-  border-color: #0000001f;
+  border-color: #6841411f;
   gap: 1rem;
-  background-color: #f8802b3b;
+  background-color: #f8802b1e;
 }
 
 .left-menu-header-item {
@@ -401,4 +403,17 @@ input {
   .create-new-form {
     flex-direction: column;
   }
+}
+
+.author {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  font-family: vinque;
+  font-size: 0.8rem;
+}
+.author a {
+  color: black;
 }

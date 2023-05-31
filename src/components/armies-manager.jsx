@@ -127,6 +127,19 @@ const ArmiesManager = ({ state, setState, setPage }) => {
             army lists and import them on another device.
           </div>
         </div>
+        <div className="author">
+          <p>
+            Application created by{" "}
+            <a href="https://github.com/LeoArr/">Leopold Arreström</a> | Game
+            created by <a href="https://www.spellcrow.com/">Spellcrow</a>
+          </p>
+          <p>
+            Published under the{" "}
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html">
+              GNU GENERAL PUBLIC LICENSE
+            </a>
+          </p>
+        </div>
       </div>
     </>
   );
