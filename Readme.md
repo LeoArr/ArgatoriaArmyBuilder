@@ -33,12 +33,18 @@ And run this command to build the app:
 make build
 ```
 
+## Upcoming
+
+Currently I'm working on:
+ - a more condensed text-only printable army list.
+ - Adding more armies.
+
 ## Collaborate
 
 Feel free to collaborate, reach out to me with any questions.
 
 Currently it needs:
 
-- More armies. Some manual data entry into `assets/armies.js`
+- More armies, artefacts, flags etc. Manual data entry into `src/assets/armies.js`.
 - Cool graphics. For example a favicon and portraits for the unit cards.
 - Proofreading. Are all the stats correct? Are the rules correct? etc.
