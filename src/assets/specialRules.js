@@ -335,4 +335,9 @@ export default {
     description:
       "After both armies are deployed, the Forest Dragon can be deployed up to 20 cm from its deployment zone.",
   },
+  horde: {
+    name: "Horde",
+    description:
+      "Large units have exceptional resistance to the charge of smaller units. An enemy charging such a unit often loses momentum and after a while it turns from an attacker into a victim. As long as the charge target has a minimum of 12 bases and the attacking enemy has less than 12 bases, it cancels the enemy’s bonuses from the charge but not from an ability, spell, or other support.",
+  },
 };

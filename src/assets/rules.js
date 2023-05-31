@@ -154,15 +154,28 @@ const rules = [
     },
   },
   {
-    title: "Ravagers on Sungals",
+    title: "Artefacts",
     fn: function (state) {
-      const count = state.selectedUnits.filter(
-        (u) => u.name === "Ravagers on Sungals"
-      ).length;
-      const totalCost = calculateTotalCost(state);
-      if (count > 5 || (count > 2 && totalCost <= 1500)) {
-        return "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts. (Army List)";
+      const count = state.selectedArtefacts.length;
+      if (count > 1) {
+        return "Before the battle, you can buy one artefact for your General.";
       }
+      return false;
+    },
+  },
+  {
+    title: "Magic Banners",
+    fn: function (state) {
+      const count = state.selectedMagicBanners.length;
+      console.log(count);
+      if (count > 1) {
+        return "Before the battle, you can buy a Magic Banner for one of the Command Groups. Magic Banners can be in armies from 1000 pts. An army, regardless of its size, may have only one such banner. Banner powers last as long as the Command Group with a Magic Banner is in play.";
+      }
+      if (count === 1 && calculateTotalCost(state) < 1000) {
+        return "Before the battle, you can buy a Magic Banner for one of the Command Groups. Magic Banners can be in armies from 1000 pts. An army, regardless of its size, may have only one such banner. Banner powers last as long as the Command Group with a Magic Banner is in play.";
+      }
+      console.log("ok");
+      return false;
     },
   },
 ];

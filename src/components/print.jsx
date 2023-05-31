@@ -1,3 +1,4 @@
+import specialRules from "../assets/specialRules";
 import "../print.css";
 
 const Print = ({ armyState, setPage }) => {
@@ -16,7 +17,10 @@ const Print = ({ armyState, setPage }) => {
         data[unit.type][unit.name].printCount += ` + ${unit.count}`;
       } else {
         unit.printCount = String(unit.count);
-        data[unit.type][unit.name] = unit;
+        data[unit.type][unit.name] = JSON.parse(JSON.stringify(unit));
+      }
+      if (unit.count >= 12) {
+        data[unit.type][unit.name].specialRules.push(specialRules.horde);
       }
     }
     for (const spell of armyState.selectedSpells) {
@@ -150,7 +154,7 @@ const Unit = ({ unit }) => {
           <div className="card-desc">
             {unit.specialRules.map((sr) => {
               return (
-                <div style={{ marginBottom: "0.05in" }}>
+                <div className="spec-rule">
                   <span style={{ fontWeight: "bold" }}>{sr.name}</span>.{" "}
                   {typeof sr.description === "string"
                     ? sr.description

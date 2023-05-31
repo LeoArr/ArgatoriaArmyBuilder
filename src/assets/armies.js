@@ -1,4 +1,10 @@
-import { magicItems, spells } from "./auxiliaryArmyStuff";
+import { calculateTotalCost } from "../utils";
+import {
+  artefacts,
+  magicBanners,
+  magicItems,
+  spells,
+} from "./auxiliaryArmyStuff";
 import specialRules from "./specialRules";
 
 const armies = {
@@ -207,6 +213,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
   Arox: {
     models: [
@@ -427,6 +435,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBannerss: magicBanners,
   },
   Vaendral: {
     models: [
@@ -467,6 +477,15 @@ const armies = {
         T: 5,
         A: 2,
         W: 3,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "Ravagers on Sungals"
+          ).length;
+          if (count > 5 || (calculateTotalCost(state) <= 1500 && count > 2)) {
+            return "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.terribleDamage,
           specialRules.fury,
@@ -488,6 +507,15 @@ const armies = {
         T: 2,
         A: 2,
         W: 2,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "Sozruits"
+          ).length;
+          if (count > 2) {
+            return "Max. 2 units in the army.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.scare,
           specialRules.cult,
@@ -546,6 +574,15 @@ const armies = {
         T: 2,
         A: 2,
         W: 2,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "White Witches (Amazons)"
+          ).length;
+          if (count > 3 || (calculateTotalCost(state) <= 1500 && count > 1)) {
+            return "Max. 1 unit in the army of 1500 pts or less, max. 3 units in the army above 1500 pts.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.fearless,
           specialRules.curseOfTheWitch,
@@ -665,6 +702,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
   Dirandis: {
     models: [
@@ -881,6 +920,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
   "Sheol-morg - Lord of the Abyss": {
     models: [
@@ -993,6 +1034,15 @@ const armies = {
         T: 5,
         A: 2,
         W: 3,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "Black Knights on Horgars"
+          ).length;
+          if (count > 5 || (calculateTotalCost(state) <= 1500 && count > 2)) {
+            return "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.heavyArmor,
           specialRules.fierceAssault,
@@ -1131,6 +1181,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
   "Sheol-morg - Lord Necromancer": {
     models: [
@@ -1243,6 +1295,15 @@ const armies = {
         T: 5,
         A: 2,
         W: 3,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "Black Knights on Horgars"
+          ).length;
+          if (count > 5 || (calculateTotalCost(state) <= 1500 && count > 2)) {
+            return "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.heavyArmor,
           specialRules.fierceAssault,
@@ -1381,6 +1442,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
   "Sheol-morg - Lord of Sheol-morg": {
     models: [
@@ -1493,6 +1556,15 @@ const armies = {
         T: 5,
         A: 2,
         W: 3,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "Black Knights on Horgars"
+          ).length;
+          if (count > 5 || (calculateTotalCost(state) <= 1500 && count > 2)) {
+            return "Max. 2 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.heavyArmor,
           specialRules.fierceAssault,
@@ -1631,6 +1703,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
   Gaeldor: {
     models: [
@@ -1671,6 +1745,15 @@ const armies = {
         T: 4,
         A: 2,
         W: 3,
+        ruleFn: function (state) {
+          const count = state.selectedUnits.filter(
+            (u) => u.name === "Amazons on Spiders"
+          ).length;
+          if (count > 5 || (calculateTotalCost(state) <= 1500 && count > 3)) {
+            return "Max. 3 units in the army of 1500 pts or less, max. 5 units in the army above 1500 pts.";
+          }
+          return false;
+        },
         specialRules: [
           specialRules.venom,
           specialRules.keenSenses,
@@ -1887,6 +1970,8 @@ const armies = {
     ],
     spells: spells,
     magicItems: magicItems,
+    artefacts: artefacts,
+    magicBanners: magicBanners,
   },
 };
 

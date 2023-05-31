@@ -1,3 +1,5 @@
+import specialRules from "../assets/specialRules";
+
 const MainContent = ({ state, setState }) => {
   return (
     <div className="unit-list">
@@ -46,6 +48,30 @@ const MainContent = ({ state, setState }) => {
           />
         );
       })}
+      {state.selectedArtefacts &&
+        state.selectedArtefacts.map((item, i) => {
+          return (
+            <Magic
+              data={item}
+              state={state}
+              setState={setState}
+              index={i}
+              type="Artefact"
+            />
+          );
+        })}
+      {state.selectedMagicBanners &&
+        state.selectedMagicBanners.map((item, i) => {
+          return (
+            <Magic
+              data={item}
+              state={state}
+              setState={setState}
+              index={i}
+              type="Magic Banner"
+            />
+          );
+        })}
     </div>
   );
 };
@@ -67,7 +93,13 @@ const Magic = ({ data, state, setState, index, type }) => {
           className="material-symbols-rounded notranslate"
           onClick={() => {
             const key =
-              type === "Spell" ? "selectedSpells" : "selectedMagicItems";
+              type === "Spell"
+                ? "selectedSpells"
+                : type === "Magic Item"
+                ? "selectedMagicItems"
+                : type === "Artefact"
+                ? "selectedArtefacts"
+                : "selectedMagicBanners";
             setState({
               ...state,
               [key]: state[key].filter((m, i) => i !== index),
@@ -141,6 +173,11 @@ const Unit = ({ unit, state, setState, index, marauder }) => {
         {unit.specialRules.map((sr) => (
           <div title={sr.description}>{sr.name}</div>
         ))}
+        {unit.count >= 12 && (
+          <div title={specialRules.horde.description}>
+            {specialRules.horde.name}
+          </div>
+        )}
       </div>
       <div className="unit-pts">{unit.count * unit.pointCost}pts</div>
     </div>

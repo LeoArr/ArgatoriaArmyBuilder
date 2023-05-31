@@ -184,11 +184,11 @@ main {
   justify-content: center;
   background-color: #64b4ffd0;
   padding: 0.5rem;
-  border-radius: 10%;
+  border-radius: 0.6rem;
   color: white;
   grid-column-start: 1;
   grid-column-end: 2;
-  width: 4rem;
+  width: 6rem;
 }
 
 .unit-name {
@@ -264,8 +264,13 @@ main {
   top: 0;
   bottom: 0;
   right: 0;
+  max-width: 50rem;
   padding: 4rem;
-  background-color: #8d8d8d;
+  overflow-y: hidden;
+  background-image: url(./assets/white_parch.png);
+  background-size: cover;
+  background-blend-mode: color-burn;
+  background-color: #4a4a4a;
   color: white;
 }
 

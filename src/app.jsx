@@ -24,40 +24,59 @@ export function App() {
     sessionStorage.setItem("currentPage", page);
   }, [page]);
 
+  const validateRules = () => {
+    const _errors = [];
+    const army_state = state.armies[state.currentArmy];
+    for (const rule of rules) {
+      const msg = rule.fn(army_state);
+      if (msg) {
+        _errors.push({ title: rule.title, msg });
+      }
+    }
+    for (const unit of army_state.selectedUnits) {
+      if (unit.ruleFn) {
+        const msg = unit.ruleFn(army_state);
+        if (msg) {
+          _errors.push({ title: unit.name, msg });
+        }
+      }
+    }
+    setErrors(_errors);
+  };
+
+  const handleMarauders = () => {
+    const marauders = [];
+    for (const unit of state.armies[state.currentArmy].selectedUnits) {
+      if (unit.count >= 16 && !unit.model) {
+        marauders.push({ ...unit, pointCost: 0, count: 4 });
+      }
+    }
+    const newArmyState = {
+      ...state.armies[state.currentArmy],
+      marauders: marauders,
+    };
+    const newState = {
+      ...state,
+      armies: {
+        ...state.armies,
+        [state.currentArmy]: newArmyState,
+      },
+    };
+    setState(newState);
+    localStorage.setItem("state", JSON.stringify(state));
+  };
+
   useEffect(() => {
     if (state.currentArmy) {
-      const errors = [];
-      for (const rule of rules) {
-        const msg = rule.fn(state.armies[state.currentArmy]);
-        if (msg) {
-          errors.push({ title: rule.title, msg });
-        }
-        setErrors(errors);
-      }
-      const marauders = [];
-      for (const unit of state.armies[state.currentArmy].selectedUnits) {
-        if (unit.count >= 16 && !unit.model) {
-          marauders.push({ ...unit, pointCost: 0, count: 4 });
-        }
-      }
-      const newArmyState = {
-        ...state.armies[state.currentArmy],
-        marauders: marauders,
-      };
-      const newState = {
-        ...state,
-        armies: {
-          ...state.armies,
-          [state.currentArmy]: newArmyState,
-        },
-      };
-      setState(newState);
-      localStorage.setItem("state", JSON.stringify(state));
+      validateRules();
+      handleMarauders();
     }
   }, [
     state.armies[state.currentArmy]?.selectedUnits,
     state.armies[state.currentArmy]?.selectedMagicItems,
     state.armies[state.currentArmy]?.selectedSpells,
+    state.armies[state.currentArmy]?.selectedMagicBanners,
+    state.armies[state.currentArmy]?.selectedArtefacts,
   ]);
 
   const setArmyState = (armyState) => {
@@ -86,6 +105,7 @@ export function App() {
           setState={setState}
         />
       </header>
+
       <main>
         {page === "army-builder" && state.armies[state.currentArmy] && (
           <ArmyBuilder

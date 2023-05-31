@@ -7,6 +7,8 @@ const initialArmyState = {
   selectedUnits: [],
   selectedSpells: [],
   selectedMagicItems: [],
+  selectedArtefacts: [],
+  selectedMagicBanners: [],
   marauders: [],
 };
 

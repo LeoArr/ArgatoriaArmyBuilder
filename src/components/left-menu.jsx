@@ -48,26 +48,6 @@ const LeftMenuHeader = ({ state, setState }) => {
 };
 
 const ModelList = ({ state, setState }) => {
-  const armyList = armies[state.army].models.sort((a, b) => {
-    const aL =
-      a.type === "basic"
-        ? 1
-        : a.type === "elite"
-        ? 2
-        : a.type === "rare"
-        ? 3
-        : 4;
-    const bL =
-      b.type === "basic"
-        ? 1
-        : b.type === "elite"
-        ? 2
-        : b.type === "rare"
-        ? 3
-        : 4;
-    return aL - bL;
-  });
-
   const basic = armies[state.army].models.filter(
     (unit) => unit.type === "basic"
   );
@@ -125,6 +105,30 @@ const ModelList = ({ state, setState }) => {
           />
         );
       })}
+      <div className="unit-delimiter">Artefacts</div>
+      {armies[state.army].artefacts.map((item, i) => {
+        return (
+          <Magic
+            key={i}
+            data={item}
+            type="artefact"
+            state={state}
+            setState={setState}
+          />
+        );
+      })}
+      <div className="unit-delimiter">Magic Banner</div>
+      {armies[state.army].magicBanners.map((item, i) => {
+        return (
+          <Magic
+            key={i}
+            data={item}
+            type="magic-banner"
+            state={state}
+            setState={setState}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -140,6 +144,16 @@ const Magic = ({ data, type, state, setState }) => {
       setState({
         ...state,
         selectedMagicItems: [...state.selectedMagicItems, data],
+      });
+    } else if (type === "artefact") {
+      setState({
+        ...state,
+        selectedArtefacts: [...state.selectedArtefacts, data],
+      });
+    } else if (type === "magic-banner") {
+      setState({
+        ...state,
+        selectedMagicBanners: [...state.selectedMagicBanners, data],
       });
     }
   };
@@ -166,7 +180,7 @@ const Magic = ({ data, type, state, setState }) => {
         {typeof data.description === "string"
           ? data.description
           : data.description.map((d) => <div> - {d}</div>)}
-        <div title="Add new unit" className="add-model-btn" onClick={addMagic}>
+        <div title="Add new" className="add-model-btn" onClick={addMagic}>
           +
         </div>
       </div>
@@ -176,12 +190,15 @@ const Magic = ({ data, type, state, setState }) => {
 
 const SingleModel = ({ model, state, setState }) => {
   const addNewUnit = () => {
+    // Deep copy model, reset ruleFn
+    const newModel = JSON.parse(JSON.stringify(model));
+    newModel.ruleFn = model.ruleFn;
     setState({
       ...state,
       selectedUnits: [
         ...state.selectedUnits,
         {
-          ...model,
+          ...newModel,
           count: 1 * model.model ? 1 : 4,
         },
       ],

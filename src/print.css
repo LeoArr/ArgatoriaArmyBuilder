@@ -68,6 +68,14 @@
   font-size: 0.13in;
 }
 
+.spec-rule {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  max-height: 0.39in;
+  margin-bottom: 0.05in;
+}
+
 .print-count {
   font-size: 0.15in;
   text-align: center;

@@ -24,6 +24,9 @@ const Errors = ({ errors, errorsOpen, setErrorsOpen }) => {
     <>
       {errorsOpen && (
         <div ref={modal_ref} className="errors-view">
+          <div style={{ fontSize: "1.3rem", marginBottom: "1rem" }}>
+            Errors:
+          </div>
           <div>
             {errors.map((err, i) => {
               return (
