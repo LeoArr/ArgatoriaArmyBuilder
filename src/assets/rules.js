@@ -167,14 +167,12 @@ const rules = [
     title: "Magic Banners",
     fn: function (state) {
       const count = state.selectedMagicBanners.length;
-      console.log(count);
       if (count > 1) {
         return "Before the battle, you can buy a Magic Banner for one of the Command Groups. Magic Banners can be in armies from 1000 pts. An army, regardless of its size, may have only one such banner. Banner powers last as long as the Command Group with a Magic Banner is in play.";
       }
       if (count === 1 && calculateTotalCost(state) < 1000) {
         return "Before the battle, you can buy a Magic Banner for one of the Command Groups. Magic Banners can be in armies from 1000 pts. An army, regardless of its size, may have only one such banner. Banner powers last as long as the Command Group with a Magic Banner is in play.";
       }
-      console.log("ok");
       return false;
     },
   },

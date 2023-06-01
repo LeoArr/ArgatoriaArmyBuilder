@@ -36,9 +36,11 @@ make build
 ## Upcoming
 
 Currently I'm working on:
- - a more condensed text-only printable army list.
- - Adding more armies.
- - Proper routing and state handling.
+
+- Printable cards includes army rules, artefacts, spells etc.
+- A more condensed text-only printable army list.
+- Proper routing and state handling. (React router & Redux?)
+- Styling...
 
 ## Collaborate
 

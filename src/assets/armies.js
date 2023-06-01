@@ -436,7 +436,7 @@ const armies = {
     spells: spells,
     magicItems: magicItems,
     artefacts: artefacts,
-    magicBannerss: magicBanners,
+    magicBanners: magicBanners,
   },
   Vaendral: {
     models: [

@@ -257,6 +257,12 @@ main {
 .magic-type-item {
   background-color: rgba(207, 240, 203, 0.4);
 }
+.magic-type-artefact {
+  background-color: rgba(240, 225, 203, 0.4);
+}
+.magic-type-magic-banner {
+  background-color: rgba(240, 203, 236, 0.4);
+}
 
 .errors-view {
   z-index: 1;
