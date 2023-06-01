@@ -351,6 +351,8 @@ const armies = {
       {
         name: "Command Group",
         type: "hero",
+        model: true,
+        commandGroup: true,
         pointCost: 15,
         specialRules: [specialRules.commandGroup],
       },
@@ -1962,7 +1964,7 @@ const armies = {
         name: "Gaeldaukar (General)",
         type: "hero",
         pointCost: 30,
-        mage: true,
+        general: true,
         model: true,
         LD: 2,
         specialRules: [specialRules.general],
