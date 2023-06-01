@@ -35,8 +35,9 @@ make build
 
 ## Upcoming
 
-Currently I'm working on:
+In the backlog:
 
+- Unit "portrait" images.
 - Printable cards includes army rules, artefacts, spells etc.
 - A more condensed text-only printable army list.
 - Proper routing and state handling. (React router & Redux?)
