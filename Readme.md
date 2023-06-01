@@ -36,7 +36,7 @@ make build
 ## Upcoming
 
 In the backlog:
-
+- Continiously import/parse the BattleScribe files from [this repo.](https://github.com/BSData/argatoria)
 - Unit "portrait" images.
 - Printable cards includes army rules, artefacts, spells etc.
 - A more condensed text-only printable army list.
