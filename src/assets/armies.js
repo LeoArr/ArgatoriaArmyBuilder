@@ -622,6 +622,7 @@ const armies = {
         type: "hero",
         pointCost: 15,
         commandGroup: true,
+        model: true,
         specialRules: [specialRules.commandGroup],
       },
       {
@@ -845,6 +846,7 @@ const armies = {
         type: "hero",
         pointCost: 15,
         commandGroup: true,
+        model: true,
         specialRules: [specialRules.commandGroup],
       },
       {
@@ -852,6 +854,7 @@ const armies = {
         type: "hero",
         pointCost: 15,
         champion: true,
+        model: true,
         specialRules: [
           {
             name: "Champion of Ice",
@@ -865,6 +868,7 @@ const armies = {
         type: "hero",
         pointCost: 10,
         champion: true,
+        model: true,
         specialRules: [
           {
             name: "Champion of Fire",
@@ -878,6 +882,7 @@ const armies = {
         type: "hero",
         pointCost: 13,
         champion: true,
+        model: true,
         specialRules: [
           {
             name: "Champion of Storm",
@@ -891,6 +896,7 @@ const armies = {
         type: "hero",
         pointCost: 14,
         mage: true,
+        model: true,
         specialRules: [
           {
             name: "Priest of the Old Gods",
@@ -904,6 +910,7 @@ const armies = {
         type: "hero",
         pointCost: 14,
         mage: true,
+        model: true,
         specialRules: [
           {
             name: "Fortune-teller",
@@ -917,7 +924,8 @@ const armies = {
         type: "hero",
         pointCost: 30,
         LD: 3,
-        mage: true,
+        general: true,
+        model: true,
         specialRules: [specialRules.general],
       },
     ],
