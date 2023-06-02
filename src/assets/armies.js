@@ -130,6 +130,7 @@ const armies = {
         type: "hero",
         pointCost: 15,
         commandGroup: true,
+        model: true,
         specialRules: [specialRules.commandGroup],
       },
       {
